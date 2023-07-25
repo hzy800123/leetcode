@@ -1,4 +1,4 @@
-package Problem_70_爬楼梯;
+package 一维动态规划.Problem_70_爬楼梯;
 
 import java.time.Duration;
 import java.time.Instant;

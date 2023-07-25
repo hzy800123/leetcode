@@ -1,4 +1,4 @@
-package Problem_205_同构字符串;
+package 哈希表.Problem_205_同构字符串;
 
 import java.util.HashMap;
 import java.util.HashSet;
