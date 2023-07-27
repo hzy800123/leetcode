@@ -16,19 +16,19 @@ public class Main {
         // Input: root = [1,2,2,3,4,4,3]
         // Output: true
 
-        TreeNode treeNode1 = new TreeNode(1);
-        TreeNode treeNode2 = new TreeNode(2);
-        TreeNode treeNode3 = new TreeNode(2);
-        TreeNode treeNode4 = new TreeNode(3);
-        TreeNode treeNode5 = new TreeNode(4);
-        TreeNode treeNode6 = new TreeNode(4);
-        TreeNode treeNode7 = new TreeNode(3);
-        treeNode1.left = treeNode2;
-        treeNode1.right = treeNode3;
-        treeNode2.left = treeNode4;
-        treeNode2.right = treeNode5;
-        treeNode3.left = treeNode6;
-        treeNode3.right = treeNode7;
+//        TreeNode treeNode1 = new TreeNode(1);
+//        TreeNode treeNode2 = new TreeNode(2);
+//        TreeNode treeNode3 = new TreeNode(2);
+//        TreeNode treeNode4 = new TreeNode(3);
+//        TreeNode treeNode5 = new TreeNode(4);
+//        TreeNode treeNode6 = new TreeNode(4);
+//        TreeNode treeNode7 = new TreeNode(3);
+//        treeNode1.left = treeNode2;
+//        treeNode1.right = treeNode3;
+//        treeNode2.left = treeNode4;
+//        treeNode2.right = treeNode5;
+//        treeNode3.left = treeNode6;
+//        treeNode3.right = treeNode7;
 
         // [1,0]
 //        TreeNode treeNode1 = new TreeNode(1);
@@ -36,12 +36,12 @@ public class Main {
 //        treeNode1.left = treeNode2;
 
         // [1]
-//        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode1 = new TreeNode(1);
 
         treeNode = treeNode1;
 
         Solution solution = new Solution();
-        boolean result = solution.isSymmetric(treeNode);
+        boolean result = solution.isSymmetric1(treeNode);
         System.out.println("result = " + result);
     }
 
@@ -61,7 +61,44 @@ public class Main {
      * }
      */
     static class Solution {
-        public boolean isSymmetric(TreeNode root) {
+
+        public boolean isSymmetric1(TreeNode root) {
+
+            // 根节点为空
+            if (root == null) {
+                return true;
+            }
+
+            return checkSame(root.left, root.right);
+        }
+
+        // 递归调用
+        public boolean checkSame(TreeNode leftTree, TreeNode rightTree) {
+
+            if (leftTree == null && rightTree == null) {
+                return true;
+            }
+
+            if (leftTree == null && rightTree != null || leftTree != null && rightTree == null) {
+                return false;
+            }
+
+            if (leftTree.val != rightTree.val) {
+                return false;
+            }
+
+            // 递归调用，检查左节点的左子树 和 右节点的右子树
+            boolean result1 = checkSame(leftTree.left, rightTree.right);
+
+            // 递归调用，检查左节点的右子树 和 右节点的左子树
+            boolean result2 = checkSame(leftTree.right, rightTree.left);
+
+            return result1 && result2;
+        }
+
+        
+        // 使用队列，广度优先，搜索二叉树的节点
+        public boolean isSymmetric2(TreeNode root) {
 
             // 广度优先 搜索二叉树，使用队列 Queue - LinkedList
             Queue<TreeNode> queue = new LinkedList<>();
