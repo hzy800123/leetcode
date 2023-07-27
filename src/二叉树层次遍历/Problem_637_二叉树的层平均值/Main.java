@@ -70,6 +70,8 @@ public class Main {
 
                 // 如果是分隔符null，直接再添加到队列尾部
                 if (node == null) {
+
+                    // 如果队列为空，而且count为0，直接返回
                     if (queue.isEmpty() && count == 0) {
                         break;
                     } else {
@@ -79,11 +81,12 @@ public class Main {
                             // 计算 平均值
                             double aver = sum * 1.0 / count;
                             list.add(aver);
+
+                            // 重置sum，count为0
+                            sum = 0;
+                            count = 0;
                         }
 
-                        // 重置sum，count为0
-                        sum = 0;
-                        count = 0;
                         continue;
                     }
                 }
