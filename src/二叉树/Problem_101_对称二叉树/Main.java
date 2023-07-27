@@ -96,7 +96,7 @@ public class Main {
             return result1 && result2;
         }
 
-        
+
         // 使用队列，广度优先，搜索二叉树的节点
         public boolean isSymmetric2(TreeNode root) {
 
