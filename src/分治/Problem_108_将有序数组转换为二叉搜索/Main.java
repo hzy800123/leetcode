@@ -1,10 +1,5 @@
 package 分治.Problem_108_将有序数组转换为二叉搜索;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -57,7 +52,7 @@ public class Main {
                 return;
             }
             // 创建一个新的子节点,并挂到原来的父节点的下面
-            int midLegth = (start + end)/2;
+            int midLegth = (start + end) / 2;
             int val = nums[midLegth];
             TreeNode node = new TreeNode(val);
             if (isLeft) {
