@@ -191,7 +191,7 @@ public class Main {
 
             int maxLength = Math.max(aLength, bLength);
             StringBuffer resultStrBuffer = new StringBuffer();
-            int preSum = 0;
+            int carry = 0;
             int currentSum = 0;
             int threeTotal = 0;
             char aChar = '0';
@@ -207,15 +207,15 @@ public class Main {
                 bIntValue = bChar - '0';
 
                 // currentSum 为 3个值的和,再取模2
-                threeTotal = aIntValue + bIntValue + preSum;
+                threeTotal = aIntValue + bIntValue + carry;
                 currentSum = threeTotal % 2;
                 // preSum 为 3个值的和,再整除2
-                preSum = threeTotal / 2;
+                carry = threeTotal / 2;
 
                 resultStrBuffer.append(currentSum == 0 ? '0' : '1');
             }
 
-            if (preSum == 1) {
+            if (carry == 1) {
                 resultStrBuffer.append("1");
             }
 
