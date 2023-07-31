@@ -22,7 +22,7 @@ public class Main {
 //        int x = 6;
 
         // 输入：x = 2147395599
-        // 输出：2147395598
+        // 输出：46339
         int x = 2147395599;
 
         Solution solution = new Solution();
@@ -33,6 +33,11 @@ public class Main {
 
         int result1 = solution.mySqrt1(x);
         System.out.println("result1 = " + result1);
+
+        System.out.println(" --- ");
+
+        int result2 = solution.mySqrt2(x);
+        System.out.println("result2 = " + result2);
     }
 
     static class Solution {
@@ -93,13 +98,13 @@ public class Main {
         public int process(int start, int end, int x) {
 
             int half = (start + end) / 2;
-            int halfSqrt = half * half;
+            long halfSqrt = (long)half * half;
 
             if (halfSqrt == x) {
                 return half;
             }
 
-            int halfPlusOneSqrt = (half + 1) * (half + 1);
+            long halfPlusOneSqrt = (long)(half + 1) * (half + 1);
             if (halfSqrt < x && halfPlusOneSqrt > x) {
                 return half;
             }
