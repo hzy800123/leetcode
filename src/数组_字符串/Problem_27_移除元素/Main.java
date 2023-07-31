@@ -1,7 +1,5 @@
 package 数组_字符串.Problem_27_移除元素;
 
-import java.util.HashMap;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -72,6 +70,7 @@ public class Main {
                             nums[i] = nums[j];
                             nums[j] = temp;
                             i++;
+                            j--;
                             break;
                         }
                     }
