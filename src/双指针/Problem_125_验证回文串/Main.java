@@ -34,10 +34,12 @@ public class Main {
         public boolean isPalindrome1(String s) {
             int length = s.length();
             char a = ' ';
+            // 使用一个新的字符串数组,用来保存全部转换为小写字母的新的字符串
             char[] charArray = new char[length];
             char tempChar = ' ';
             int newLength = 0;
 
+            // 遍历字符串,逐个字符进行转为小写字符
             for (int i = 0; i < length; i++) {
                 a = s.charAt(i);
 
@@ -53,6 +55,7 @@ public class Main {
                 }
             }
 
+            // 使用 左指针 和 右指针,遍历新的字符串数组
             int l = 0;
             int r = newLength - 1;
 
@@ -87,13 +90,14 @@ public class Main {
                 }
             }
 
-            System.out.println("stringBuffer : " + stringBuffer);
+//            System.out.println("stringBuffer : " + stringBuffer);
 
+            // 使用 StringBuffer,方便反转字符串,再进行比较
             String str1 = new String(stringBuffer);
             String str2 = new String(stringBuffer.reverse());
 
-            System.out.println("str1 : " + str1);
-            System.out.println("str2 : " + str2);
+//            System.out.println("str1 : " + str1);
+//            System.out.println("str2 : " + str2);
 
             return str1.equals(str2);
         }
