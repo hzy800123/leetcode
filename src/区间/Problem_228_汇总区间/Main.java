@@ -3,6 +3,9 @@ package 区间.Problem_228_汇总区间;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+https://leetcode.cn/problems/summary-ranges/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how

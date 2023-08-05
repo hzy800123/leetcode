@@ -1,9 +1,11 @@
 package 哈希表.Problem_290_单词规律;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/*
+https://leetcode.cn/problems/word-pattern/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how
@@ -50,8 +52,12 @@ public class Main {
 
         public boolean wordPattern(String pattern, String s) {
 
+            // 建立HashMap, 保存对应的映射关系, key-value
+            // 因为双向的一一对应关系,所以还需要一个HashSet保存已经建立对应关系的value
+            // 避免出现 多对1 或 1对多 的映射关系
             HashMap<String, String> hashMap = new HashMap<>();
             HashSet<String> hashSet = new HashSet<>();
+
             int pLength = pattern.length();
             String pTempStr = new String();
             String[] sSplitStr = s.split(" ");

@@ -2,6 +2,9 @@ package 哈希表.Problem_1_两数之和;
 
 import java.util.HashMap;
 
+/*
+https://leetcode.cn/problems/two-sum/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how

@@ -1,5 +1,8 @@
 package 双指针.Problem_392_判断子序列;
 
+/*
+https://leetcode.cn/problems/is-subsequence/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

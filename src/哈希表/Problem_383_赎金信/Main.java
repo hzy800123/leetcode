@@ -3,6 +3,9 @@ package 哈希表.Problem_383_赎金信;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/*
+https://leetcode.cn/problems/ransom-note/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how
