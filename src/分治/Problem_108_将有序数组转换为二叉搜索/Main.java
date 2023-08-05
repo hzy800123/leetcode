@@ -1,5 +1,8 @@
 package 分治.Problem_108_将有序数组转换为二叉搜索;
 
+/*
+https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -39,6 +42,10 @@ public class Main {
             int val = nums[midLegth];
             TreeNode root = new TreeNode(val);
 
+            // 因为是平衡二叉树, 所以每一次都可以采用 二分法:
+            // 对数组里的元素平均分为2份
+            // 对较小的区间的数字, 构建左子树
+            // 对较大的区间的数字, 构建右子树
             process(nums, 0, midLegth, root, true);
             process(nums, midLegth + 1, length, root, false);
 
@@ -61,6 +68,9 @@ public class Main {
                 tree.right = node;
             }
 
+            // 对数组里的元素平均分为2份
+            // 对较小的区间的数字, 构建左子树
+            // 对较大的区间的数字, 构建右子树
             process(nums, start, midLegth, node, true);
             process(nums, midLegth + 1, end, node, false);
 

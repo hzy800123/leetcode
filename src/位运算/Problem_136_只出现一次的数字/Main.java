@@ -2,6 +2,9 @@ package 位运算.Problem_136_只出现一次的数字;
 
 import java.util.*;
 
+/*
+https://leetcode.cn/problems/single-number/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -26,8 +29,13 @@ public class Main {
 
     static class Solution {
         public int singleNumber(int[] nums) {
+
+            // 使用 HashSet, 保存出现的数字
             HashSet<Integer> hashSet = new HashSet<>();
 
+            // 如果 数字不在 HashSet 中, 加入进去
+            // 如果 数字已经在 HashSet 中, 可以删除
+            // 最后, HashSet 中, 余下的数字即出现一次的数字
             for (int i = 0; i < nums.length; i++) {
                 int num = nums[i];
                 if (hashSet.contains(num)) {

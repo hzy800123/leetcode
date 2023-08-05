@@ -1,8 +1,8 @@
 package 位运算.Problem_190_颠倒二进制位;
 
-import java.util.HashSet;
-import java.util.Iterator;
-
+/*
+https://leetcode.cn/problems/reverse-bits/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

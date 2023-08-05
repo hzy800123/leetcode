@@ -1,9 +1,9 @@
 package 位运算.Problem_67_二进制求和;
 
-import javax.swing.*;
-import java.util.HashSet;
-import java.util.Iterator;
 
+/*
+https://leetcode.cn/problems/add-binary/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -66,10 +66,13 @@ public class Main {
             char preSum = '0';
             char currentSum = '0';
 
+            // 根据字符串 a 和 b 的长度的最小值, 遍历2个字符串
             for (int i = 1; i <= minLength; i++) {
                 char aChar = a.subSequence(aLength - i, aLength - i + 1).charAt(0);
                 char bChar = b.subSequence(bLength - i, bLength - i + 1).charAt(0);
 
+                // 对每2个字符, 进行计算
+                // 计算后, 获得当前和值 以及 进位值
                 if (aChar == '0' && bChar == '0') {
                     // 之前的进位为 0 或 1
                    if (preSum == '0') {
@@ -101,11 +104,13 @@ public class Main {
                     }
                 }
 
+                // 每次循环, 把当前的和值, 放入结果的数组中
                 resultChars[( maxLength + 1 ) - i] = currentSum;
             }
 
             int gapLength = Math.abs(aLength - bLength);
 
+            // 再把字符串 a 和 b, 相差的长度的字符, 进行计算处理
             for (int j = 0; j < gapLength; j++) {
                 if (aLength >= bLength) {
                     char aChar = a.subSequence(aLength - minLength - 1 - j, aLength - minLength - 1 - j + 1).charAt(0);
@@ -158,6 +163,7 @@ public class Main {
 
             String resultStr = null;
 
+            // 最后, 根据进位preSum的值, 决定高位是否需要再增加一位 0 或 1
             if (preSum == '1') {
                 resultChars[0] = '1';
                 resultStr = String.valueOf(resultChars);
@@ -174,13 +180,15 @@ public class Main {
             int aLength = a.length();
             int bLength = b.length();
 
-            // 补齐前导零,使 a 和 b 长度一样
+            // 补齐前导零, 使 a 和 b 长度一样
             int gapLength = Math.abs(aLength - bLength);
             StringBuffer stringBuffer = new StringBuffer();
             for (int k = 0; k < gapLength; k++) {
                 stringBuffer.append("0");
             }
 
+            // 如果 b字符串较短, 在b字符串前补齐前导零
+            // 如果 a字符串较短, 在a字符串前补齐前导零
             if (aLength > bLength) {
                 stringBuffer.append(b);
                 b = stringBuffer.toString();
@@ -206,10 +214,10 @@ public class Main {
                 aIntValue = aChar - '0';
                 bIntValue = bChar - '0';
 
-                // currentSum 为 3个值的和,再取模2
+                // currentSum 为 3个值的和, 再取模2
                 threeTotal = aIntValue + bIntValue + carry;
                 currentSum = threeTotal % 2;
-                // preSum 为 3个值的和,再整除2
+                // carry 进位值, 为 3个值的和, 再整除2
                 carry = threeTotal / 2;
 
                 resultStrBuffer.append(currentSum == 0 ? '0' : '1');
@@ -221,6 +229,8 @@ public class Main {
 
             System.out.println("resultStrBuffer = " + resultStrBuffer.toString());
 
+            // 需要原来的将代表二进制数字的字符串(高位在右), 进行反转, 变为高位在左
+            // 例如: 01001 -> 10010
             resultStrBuffer.reverse();
 
             return resultStrBuffer.toString();
