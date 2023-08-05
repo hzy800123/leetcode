@@ -1,11 +1,11 @@
 package 二叉树.Problem_101_对称二叉树;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
-import java.util.concurrent.LinkedBlockingQueue;
 
+/*
+https://leetcode.cn/problems/symmetric-tree/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -75,14 +75,20 @@ public class Main {
         // 递归调用
         public boolean checkSame(TreeNode leftTree, TreeNode rightTree) {
 
+            // 先判断 左子树 和 右子树, 根节点的各种情况
+            // leftTree 为空, rightTree 为空
             if (leftTree == null && rightTree == null) {
                 return true;
             }
 
+            // leftTree 为空, rightTree 不为空
+            // leftTree 不为空, rightTree 为空
             if (leftTree == null && rightTree != null || leftTree != null && rightTree == null) {
                 return false;
             }
 
+            // leftTree 不为空, rightTree 不为空
+            // 但是, 它们的值 不相等
             if (leftTree.val != rightTree.val) {
                 return false;
             }
@@ -93,6 +99,8 @@ public class Main {
             // 递归调用，检查左节点的右子树 和 右节点的左子树
             boolean result2 = checkSame(leftTree.right, rightTree.left);
 
+            // 如果 result1 和 result2 都为true, 最后结果才是 true
+            // 其他情况, 最后结果都是 false
             return result1 && result2;
         }
 

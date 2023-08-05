@@ -1,5 +1,8 @@
 package 二叉树.Problem_100_相同的树;
 
+/*
+https://leetcode.cn/problems/same-tree/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -47,21 +50,30 @@ public class Main {
     static class Solution {
         public boolean isSameTree(TreeNode p, TreeNode q) {
 
+            // 先判断 第一棵树 和 第二棵树, 自己根节点的各种情况
+            // p 为空, q 不为空
+            // p 不为空, q 为空
             if (p == null && q != null || p != null && q == null) {
                 return false;
             }
 
+            // p 为空, q 为空
             if (p == null && q == null) {
                 return true;
             }
 
+            // p 不为空, q 不为空
+            // 但是 它们的值 不相等
             if (p.val != q.val) {
                 return false;
             }
 
+            // 递归调用, 判断 第一棵树的左子树 和 第二棵树的左子树, 是否相同
             if (!isSameTree(p.left, q.left)) {
                return false;
             }
+
+            // 递归调用, 判断 第一棵树的右子树 和 第二棵树的右子树, 是否相同
             if (!isSameTree(p.right, q.right)) {
                 return false;
             }

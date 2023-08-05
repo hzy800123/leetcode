@@ -1,5 +1,8 @@
 package 二叉树.Problem_226_翻转二叉树;
 
+/*
+https://leetcode.cn/problems/invert-binary-tree/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -44,12 +47,15 @@ public class Main {
 
             TreeNode temp = null;
 
+            // 如果节点不为空, 将左右子树 交换位置
             if (root != null) {
                 temp = root.left;
                 root.left = root.right;
                 root.right = temp;
             }
 
+            // 递归调用, 对每一个子树, 都使用类似的方法:
+            // 把 左子树 和 右子树, 交换位置
             invertTree(root.left);
             invertTree(root.right);
 

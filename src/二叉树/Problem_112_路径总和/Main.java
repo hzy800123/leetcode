@@ -1,8 +1,8 @@
 package 二叉树.Problem_112_路径总和;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
+/*
+https://leetcode.cn/problems/path-sum/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -79,35 +79,9 @@ public class Main {
                 return false;
             }
 
-            // 此节点已经是叶子节点
+            // 此节点已经是叶子节点, 可以判断节点的值, 是否等于传入的参数targetSum
             if (root.left == null && root.right == null) {
                 if (root.val == targetSum) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            boolean leftResult = false;
-            boolean rightResult = false;
-            int sum = targetSum - root.val;
-
-            if (root.left != null) {
-                leftResult = process(root.left, sum);
-            }
-
-            if (root.right != null) {
-                rightResult = process(root.right, sum);
-            }
-
-            return leftResult || rightResult;
-        }
-
-        public boolean process(TreeNode tree, int sum) {
-
-            // 此节点已经是叶子节点
-            if (tree.left == null && tree.right == null) {
-                if (tree.val == sum) {
                     return true;
                 } else {
                     return false;
@@ -117,16 +91,19 @@ public class Main {
             // 此节点不为叶子节点，继续检查 左子节点 和 右子节点
             boolean leftResult = false;
             boolean rightResult = false;
-            sum = sum - tree.val;
 
-            if (tree.left != null) {
-                leftResult = process(tree.left, sum);
-            }
+            // sum 等于传入的参数targetSum, 减去当前节点的值
+            // 再用递归调用, 把sum继续传下去
+            int sum = targetSum - root.val;
 
-            if (tree.right != null) {
-                rightResult = process(tree.right, sum);
-            }
+            // 左节点, 继续递归调用检查
+            leftResult = hasPathSum(root.left, sum);
 
+            // 右节点, 继续递归调用检查
+            rightResult = hasPathSum(root.right, sum);
+
+            // 左子树 和 右子树, 都需要进行检查
+            // 返回的结果, 为 (左子树的结果 || 右子树的结果)
             return leftResult || rightResult;
         }
     }

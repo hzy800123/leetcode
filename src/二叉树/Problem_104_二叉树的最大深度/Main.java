@@ -1,5 +1,8 @@
 package 二叉树.Problem_104_二叉树的最大深度;
 
+/*
+https://leetcode.cn/problems/maximum-depth-of-binary-tree/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -57,9 +60,12 @@ public class Main {
             int depthLeft = 0;
             int depthRight = 0;
 
+            // 递归调用, 查找左节点的最大深度
             depthLeft = maxDepth(root.left);
+            // 递归调用, 查找右节点的最大深度
             depthRight = maxDepth(root.right);
 
+            // 最后结果, 是左右节点的取最大值, 再加1
             return Math.max(depthLeft, depthRight) + 1;
         }
     }

@@ -3,6 +3,9 @@ package 二叉树.Problem_94_二叉树的中序遍历;
 import java.util.LinkedList;
 import java.util.List;
 
+/*
+https://leetcode.cn/problems/binary-tree-inorder-traversal/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -65,6 +68,8 @@ public class Main {
                 return list;
             }
 
+            // 使用 递归调用 和 队列list, 先把 二叉搜索树 进行 中序遍历(左-中-右),
+            // 全部的节点都放入队列中
             // 中序遍历: 左子树 -> 根节点 -> 右子树
             process(tree.left, list);
             list.add(tree.val);

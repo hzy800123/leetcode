@@ -77,7 +77,7 @@ public class Main {
                 return list;
             }
 
-            // 使用 队列list, 先把 二叉搜索树 进行 中序遍历(左-中-右),
+            // 使用 递归调用 和 队列list, 先把 二叉搜索树 进行 中序遍历(左-中-右),
             // 全部的节点都放入队列中
             // 中序遍历: 左子树 -> 根节点 -> 右子树
             process(tree.left, list);
