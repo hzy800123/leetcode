@@ -1,5 +1,8 @@
 package 数学.Problem_66.加一;
 
+/*
+https://leetcode.cn/problems/plus-one/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -46,17 +49,17 @@ public class Main {
             int newValue = 0;
             int carry = 0;
             int newTotal = 0;
-            // 新的值,为原来的值加1后,再取模10
+            // 当前位新的值,为原来的值加1后,再取模10
             newTotal = newDigits[0] + 1;
             newValue = newTotal % 10;
-            // 进位的之,为原来的值加1后,再整除10
+            // 进位的值,为原来的值加1后,再整除10
             carry = newTotal / 10;
             // 直接修改 newDigits数组的值
             newDigits[0] = newValue;
 
             for (int j = 1; j < length; j++) {
 
-                // 新的值,为原来的值加进位的值之后,再取模10
+                // 当前位新的值,为原来的值加进位的值之后,再取模10
                 newTotal = newDigits[j] + carry;
                 newValue = newTotal % 10;
 

@@ -1,5 +1,8 @@
 package 数学.Problem_69_x的平方根;
 
+/*
+https://leetcode.cn/problems/sqrtx/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -26,11 +29,6 @@ public class Main {
         int x = 2147395599;
 
         Solution solution = new Solution();
-        int result0 = solution.mySqrt0(x);
-        System.out.println("result0 = " + result0);
-
-        System.out.println(" --- ");
-
         int result1 = solution.mySqrt1(x);
         System.out.println("result1 = " + result1);
 
@@ -42,20 +40,6 @@ public class Main {
 
     static class Solution {
 
-        public int mySqrt0(int x) {
-            int l = 0, r = x, ans = -1;
-            while (l <= r) {
-                int mid = l + (r - l) / 2;
-                if ((long) mid * mid <= x) {
-                    ans = mid;
-                    l = mid + 1;
-                } else {
-                    r = mid - 1;
-                }
-            }
-            return ans;
-
-        }
         public int mySqrt1(int x) {
 
             if (x == 1) {
@@ -67,10 +51,12 @@ public class Main {
             int end = x;
             int result = 0;
 
+            // 采用 二分法, 查找合适的数, 从而找到x的平方根
             while(start <= end) {
                 half = start + (end - start) / 2;
                 long halfSqrt = (long)half * half;
 
+                // 根据尝试的结果, 修改下一次循环查找的 开始和结束 的位置
                 if (halfSqrt <= x) {
                     result = half;
                     start = half + 1;
@@ -109,6 +95,7 @@ public class Main {
                 return half;
             }
 
+            // 递归调用, 采取 二分法, 每次修改查找的开始和结束位置
             if (halfSqrt < x) {
                 return process(half + 1, end, x);
             } else {

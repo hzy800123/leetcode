@@ -1,5 +1,8 @@
 package 数学.Problem_9_回文数;
 
+/*
+https://leetcode.cn/problems/palindrome-number/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -23,6 +26,8 @@ public class Main {
         public boolean isPalindrome1(int x) {
             String str = String.valueOf(x);
             StringBuffer stringBuffer1 = new StringBuffer(str);
+
+            // 利用 StringBuffer 的反转方法 reverse(), 可以方便的比较2个字符串是否互相反转
             stringBuffer1.reverse();
             String result1 = stringBuffer1.toString();
 
@@ -53,10 +58,12 @@ public class Main {
         }
 
         static boolean reverseCompare(String inputStr) {
+            // 先将字符串, 转为字符数组
             char[] inputChar = inputStr.toCharArray();
             int len = inputStr.length();
             int halfLen = len / 2;
 
+            // 然后, 头指针 和 尾指针 的元素, 进行比较, 判断是否相等
             for( int i = 0; i < halfLen; i++ ) {
                 if(inputChar[i] != inputChar[len - 1 - i]) {
                     return false;
