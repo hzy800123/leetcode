@@ -1,7 +1,8 @@
 package 数组_字符串.Problem_26_删除有序数组中的重复项;
 
-import java.util.HashMap;
-
+/*
+https://leetcode.cn/problems/remove-duplicates-from-sorted-array
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -57,6 +58,4 @@ public class Main {
             return l + 1;
         }
     }
-
-
 }

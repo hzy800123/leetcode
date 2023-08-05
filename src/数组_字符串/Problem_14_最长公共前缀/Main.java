@@ -1,5 +1,8 @@
 package 数组_字符串.Problem_14_最长公共前缀;
 
+/*
+https://leetcode.cn/problems/longest-common-prefix/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

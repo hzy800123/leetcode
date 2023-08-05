@@ -1,8 +1,10 @@
 package 链表.Problem_141_环形链表;
 
 import java.util.HashSet;
-import java.util.List;
 
+/*
+https://leetcode.cn/problems/linked-list-cycle/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how

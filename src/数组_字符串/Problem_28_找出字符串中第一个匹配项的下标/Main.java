@@ -1,5 +1,8 @@
 package 数组_字符串.Problem_28_找出字符串中第一个匹配项的下标;
 
+/*
+https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

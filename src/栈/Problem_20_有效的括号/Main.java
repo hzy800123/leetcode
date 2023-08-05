@@ -3,6 +3,9 @@ package 栈.Problem_20_有效的括号;
 import java.util.HashMap;
 import java.util.Stack;
 
+/*
+https://leetcode.cn/problems/valid-parentheses/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

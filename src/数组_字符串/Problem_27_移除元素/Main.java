@@ -1,5 +1,8 @@
 package 数组_字符串.Problem_27_移除元素;
 
+/*
+https://leetcode.cn/problems/remove-element/
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");

@@ -1,5 +1,8 @@
 package 数组_字符串.Problem_169_多数元素;
 
+/*
+https://leetcode.cn/problems/majority-element/
+ */
 import java.util.HashMap;
 
 public class Main {

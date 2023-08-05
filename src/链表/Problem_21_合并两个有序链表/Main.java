@@ -1,5 +1,8 @@
 package 链表.Problem_21_合并两个有序链表;
 
+/*
+https://leetcode.cn/problems/merge-two-sorted-lists/
+ */
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Enter with your caret at the highlighted text to see how
@@ -48,9 +51,11 @@ public class Main {
         public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
             ListNode resultList = null;
             ListNode resultTemp = null;
+            // 定义2个指针, 分别指向2个链表
             ListNode l1Temp = list1;
             ListNode l2Temp = list2;
 
+            // 先选择第一个头节点
             if (l1Temp != null && l2Temp != null) {
                 if (l1Temp.val <= l2Temp.val) {
                     resultList = l1Temp;
@@ -62,6 +67,7 @@ public class Main {
                 resultTemp = resultList;
             }
 
+            // 循环遍历 2个链表, 并根据各个节点的值, 比较大小, 然后选择较小的加入到新的链表
             while (l1Temp != null && l2Temp != null) {
                 if (l1Temp.val <= l2Temp.val) {
                     resultTemp.next = l1Temp;
@@ -74,6 +80,7 @@ public class Main {
                 }
             }
 
+            // 处理list2剩余的节点
             if (l1Temp == null && l2Temp != null) {
                 if (resultList == null) {
                     resultList = l2Temp;
@@ -82,6 +89,7 @@ public class Main {
                 }
             }
 
+            // 处理list1剩余的节点
             if (l2Temp == null && l1Temp != null) {
                 if (resultList == null) {
                     resultList = l1Temp;
