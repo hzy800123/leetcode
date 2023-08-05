@@ -46,8 +46,8 @@ public class Main {
             // 对数组里的元素平均分为2份
             // 对较小的区间的数字, 构建左子树
             // 对较大的区间的数字, 构建右子树
-            process(nums, 0, midLegth, root, true);
-            process(nums, midLegth + 1, length, root, false);
+            process(nums, 0, midLegth - 1, root, true);
+            process(nums, midLegth + 1, length - 1, root, false);
 
             return root;
         }
@@ -55,7 +55,7 @@ public class Main {
         public void process(int[] nums, int start, int end, TreeNode tree, boolean isLeft) {
 
             // 如果 start == end,直接返回
-            if (start == end) {
+            if (start > end) {
                 return;
             }
             // 创建一个新的子节点,并挂到原来的父节点的下面
@@ -71,7 +71,7 @@ public class Main {
             // 对数组里的元素平均分为2份
             // 对较小的区间的数字, 构建左子树
             // 对较大的区间的数字, 构建右子树
-            process(nums, start, midLegth, node, true);
+            process(nums, start, midLegth - 1, node, true);
             process(nums, midLegth + 1, end, node, false);
 
             return;
