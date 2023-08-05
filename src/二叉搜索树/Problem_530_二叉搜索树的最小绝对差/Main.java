@@ -1,12 +1,11 @@
 package 二叉搜索树.Problem_530_二叉搜索树的最小绝对差;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
+/*
+https://leetcode.cn/problems/minimum-absolute-difference-in-bst
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -55,8 +54,12 @@ public class Main {
 
             list = process(root, list);
 
+            // 设置一个临时的min, 初始值是Integer.MAX_VALUE,
+            // 用于后面的遍历队列, 每次打擂台, 留下最小值
             int min = Integer.MAX_VALUE;
 
+            // 把 二叉搜索树 进行 中序遍历后, 全部都放入队列中
+            // 队列中的元素已经有序, 可以遍历一次, 找出最小的'绝对值差'
             for (int i = 0; i < list.size() - 1; i++) {
                 int p = list.get(i);
                 int q = list.get(i + 1);
@@ -74,6 +77,8 @@ public class Main {
                 return list;
             }
 
+            // 使用 队列list, 先把 二叉搜索树 进行 中序遍历(左-中-右),
+            // 全部的节点都放入队列中
             // 中序遍历: 左子树 -> 根节点 -> 右子树
             process(tree.left, list);
             list.add(tree.val);

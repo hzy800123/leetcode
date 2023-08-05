@@ -1,8 +1,9 @@
 package 二分查找.Problem_35_搜索插入位置;
 
-import java.util.ArrayList;
-import java.util.List;
 
+/*
+https://leetcode.cn/problems/search-insert-position
+ */
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello and welcome!");
@@ -58,14 +59,21 @@ public class Main {
                 return start;
             }
 
+            // 使用 二分查找 方法
             int midLength = (start + end) / 2;
+
+            // 如果 二分之后, 已经找到, 则立即返回
             if (nums[midLength] == target) {
                 return midLength;
             }
 
+            // 如果 二分之后, 中间的值 > target, 就是 target 应该较小的区间内
+            // 修改开始和结束的位置, 继续二分查找下去
             if (nums[midLength] > target) {
                 return process(nums, start, midLength, target);
             } else {
+                // 如果 二分之后, 中间的值 <= target, 就是 target 应该较大的区间内
+                // 修改开始和结束的位置, 继续二分查找下去
                 return process(nums, midLength + 1, end, target);
             }
 
