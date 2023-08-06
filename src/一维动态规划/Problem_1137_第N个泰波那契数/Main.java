@@ -1,7 +1,7 @@
 package 一维动态规划.Problem_1137_第N个泰波那契数;
 
 /*
-https://leetcode.cn/problems/climbing-stairs
+https://leetcode.cn/problems/n-th-tribonacci-number/
  */
 public class Main {
     public static void main(String[] args) {

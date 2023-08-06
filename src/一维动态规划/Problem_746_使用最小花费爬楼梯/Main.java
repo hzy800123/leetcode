@@ -1,7 +1,7 @@
 package 一维动态规划.Problem_746_使用最小花费爬楼梯;
 
 /*
-https://leetcode.cn/problems/climbing-stairs
+https://leetcode.cn/problems/min-cost-climbing-stairs/
  */
 public class Main {
     public static void main(String[] args) {
