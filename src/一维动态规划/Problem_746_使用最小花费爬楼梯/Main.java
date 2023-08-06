@@ -55,11 +55,13 @@ public class Main {
             }
 
             if (n == 0) {
+                // 返回之前, 保存在缓存中
                 dp[0] = 0;
                 return 0;
             }
 
             if (n == 1) {
+                // 返回之前, 保存在缓存中
                 dp[1] = 0;
                 return 0;
             }
@@ -72,7 +74,7 @@ public class Main {
             int preStep2 = n - 2;
             int p2 = process(cost, preStep2, dp) + cost[preStep2];
 
-            // 把计算结果较小的值, 保存在缓存中
+            // 返回之前, 把计算结果较小的值, 保存在缓存中
             dp[n] = Math.min(p1, p2);
 
             return Math.min(p1, p2);
