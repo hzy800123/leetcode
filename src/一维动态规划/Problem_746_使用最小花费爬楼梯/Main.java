@@ -23,15 +23,9 @@ public class Main {
         // 解释：你将从下标为 0 的台阶开始。
         int[] cost = new int[]{1,100,1,1,1,100,1,1,100,1};
 
-//        Instant start1 = Instant.now();
-//        LocalDateTime start = LocalDateTime.now();
         Solution1 solution1 = new Solution1();
         int result1 = solution1.minCostClimbingStairs(cost);
-//        Instant end1 = Instant.now();
-//        LocalDateTime end = LocalDateTime.now();
-//        Duration costTime1 = Duration.between(start1, end1);
         System.out.println("result1 = " + result1);
-//        System.out.println("Cost Time 1 : " + costTime1);
     }
 
     static class Solution1 {
