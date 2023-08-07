@@ -1,11 +1,10 @@
 package 二叉树.Problem_872_叶子相似的树;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
-https://leetcode.cn/problems/leaf-similar-trees/
+https://leetcode.cn/problems/reverse-linked-list/
  */
 public class Main {
     public static void main(String[] args) {
