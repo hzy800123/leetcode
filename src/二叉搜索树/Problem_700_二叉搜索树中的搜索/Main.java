@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-https://leetcode.cn/problems/minimum-absolute-difference-in-bst
+https://leetcode.cn/problems/search-in-a-binary-search-tree/
  */
 public class Main {
     public static void main(String[] args) {
