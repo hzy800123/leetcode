@@ -29,8 +29,8 @@ public class Main {
 
         // 输入：flowerbed = [1,0,0,0,1,0,0], n = 2
         // 输出：true
-//        int[] flowerbed = new int[]{1,0,0,0,1,0,0};
-//        int n = 2;
+        int[] flowerbed = new int[]{1,0,0,0,1,0,0};
+        int n = 2;
 
         Solution solution = new Solution();
         boolean result = solution.canPlaceFlowers(flowerbed, n);
