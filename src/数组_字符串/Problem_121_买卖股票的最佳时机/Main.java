@@ -10,11 +10,25 @@ public class Main {
         System.out.println("Hello and welcome!");
         System.out.println("");
 
-//    int[] prices = new int[]{7, 1, 5, 3, 6, 4};
-//    int[] prices = new int[]{1};
-        int[] prices = new int[]{2, 1, 2, 1, 0, 1, 2};
+        // 输入：[7,1,5,3,6,4]
+        // 输出：5
+//        int[] prices = new int[]{7,1,5,3,6,4};
 
-//    int[] prices = new int[]{2,1,2,1,0,1,2,1,2};
+        // 输入：prices = [7,6,4,3,1]
+        // 输出：0
+//        int[] prices = new int[]{7,6,4,3,1};
+
+        // 输入：prices = [2,4,1]
+        // 输出：2
+//        int[] prices = new int[]{2,4,1};
+
+        // 输入：prices = [7, 4, 5, 6, 7, 3, 4, 5]
+        // 输出：3
+//        int[] prices = new int[]{7, 4, 5, 6, 7, 3, 4, 5};
+
+        // 输入：prices = [1,2]
+        // 输出：1
+        int[] prices = new int[]{1,2};
 
         Solution solution = new Solution();
         int result = solution.maxProfit(prices);
@@ -22,86 +36,77 @@ public class Main {
     }
 
     static class Solution {
-        public int maxProfit(int[] prices) {
 
-            int[] result = new int[2];
-            int max = 0;
-            int N = prices.length;
-//      int dp_L[][] = new int[N][N];
-//      int dp_H[][] = new int[N][N];
-            int dp[][] = new int[N][N];
+        public int maxProfit(int prices[]) {
+            int minprice = Integer.MAX_VALUE;
+            int maxprofit = 0;
 
-            for (int i = 0; i < prices.length - 1; i++) {
-//        result = process(prices, i, prices.length - 1, dp_L, dp_H);
-                result = process(prices, i, prices.length - 1, dp);
-                max = Math.max(result[1] - result[0], max);
+            // 只需要遍历1次数组 prices
+            for (int i = 0; i < prices.length; i++) {
+
+                // 如果遇到最低的价格, 记录最低的价格, 保存在minprice
+                if (prices[i] < minprice) {
+                    minprice = prices[i];
+
+                    // 如果不是低于最低的价格, 立即比较 当前价格 和 最低价格 的差
+                    // 如果 价格差 > maxprofit, 记录获取的最大的利润值
+                } else if (prices[i] - minprice > maxprofit) {
+                    maxprofit = prices[i] - minprice;
+                }
             }
-
-            return max;
-
+            return maxprofit;
         }
 
-        //    public int[] process(int[] prices, int start, int end, int[][] dp_L, int[][] dp_H) {
-        public int[] process(int[] prices, int start, int end, int[][] dp) {
+        public int maxProfit2(int[] prices) {
 
-            int[] result = new int[2];
+            int length = prices.length;
+            // 设置2个新的临时数组 minBuyPrices 和 maxSellPrices
+            // minBuyPrices[i] 表示 在第i天或之前 出现的最低价格
+            // maxSellPrices[j] 表示 在第j天或之后 出现的最高价格
+            int[] minBuyPrices = new int[length];
+            int[] maxSellPrices = new int[length];
+            int minPrice = Integer.MAX_VALUE;
+            int maxPrice = Integer.MIN_VALUE;
+            int curMaxProfit = 0;
 
-//      if(dp_L[start][end] != 0 && dp_H[start][end] != 0) {
-//        result[0] = dp_L[start][end];
-//        result[1] = dp_H[start][end];
-//        return result;
-//      }
-
-            if (dp[start][end] != 0) {
-                result[0] = dp[start][end] / 100000;
-                result[1] = dp[start][end] - result[0];
-                return result;
-            }
-
-
-            if (start == end) {
-                result[0] = prices[start];
-                result[1] = prices[start];
-
-//        dp_L[start][end] = result[0];
-//        dp_H[start][end] = result[1];
-                dp[start][end] = result[0] * 100000;
-                dp[start][end] = dp[start][end] + result[1];
-
-                return result;
-            }
-
-            if (end - start == 1) {
-
-                if (prices[0] > prices[1]) {
-                    result[0] = prices[end];
-                    result[1] = prices[end];
-                } else {
-                    result[0] = prices[start];
-                    result[1] = prices[end];
+            // 遍历数组 prices, 获取 minBuy 数组的每个元素的值
+            // minBuyPrices[i] 表示 在第i天或之前出现的最低价格
+            for (int i = 0; i < length - 1; i++) {
+                if (minPrice > prices[i]) {
+                    minPrice = prices[i];
                 }
-
-//        dp_L[start][end] = result[0];
-//        dp_H[start][end] = result[1];
-                dp[start][end] = result[0] * 100000;
-                dp[start][end] = dp[start][end] + result[1];
-
-                return result;
+                minBuyPrices[i] = minPrice;
             }
 
-//      result = process(prices, start, end - 1, dp_L, dp_H);
-            result = process(prices, start, end - 1, dp);
+            // 因为最后一天 不可以买入, 所以设置买入价格为Max_Value
+            minBuyPrices[length - 1] = Integer.MAX_VALUE;
 
-            if (result[1] < prices[end]) {
-                result[1] = prices[end];
+            // 遍历数组 prices, 获取 maxSell 数组的每个元素的值
+            // maxSellPrices[j] 表示 在第j天或之后出现的最高价格
+            for (int j = length - 1; j > 0; j--) {
+                if (maxPrice < prices[j]) {
+                    maxPrice = prices[j];
+                }
+                maxSellPrices[j] = maxPrice;
             }
 
-//      dp_L[start][end] = result[0];
-//      dp_H[start][end] = result[1];
-            dp[start][end] = result[0] * 100000;
-            dp[start][end] = dp[start][end] + result[1];
+            // 因为第一天 不可以卖出, 所以设置卖出价格为0
+            maxSellPrices[0] = 0;
 
-            return result;
+            /*
+            数组 prices:     7 4 5 6 7 3 4 5
+            数组 minBuy:     7 4 4 4 4 3 3 Max
+            数组 maxSell:    0 7 7 7 7 5 5 5
+            =>  Result:     0 3 3 3 3 2 2 null // maxSellPrices[k + 1] - minBuyPrices[k]
+             */
+            // 通过打擂台方式, 查找 前后至少2天 的最大利润的值, k天买入股票, k+1天或之后卖出股票
+            for (int k = 0; k < length - 1; k++) {
+                curMaxProfit = Math.max(curMaxProfit,
+                        maxSellPrices[k + 1] - minBuyPrices[k]);
+            }
+
+            // 返回 最大的利润值
+            return curMaxProfit;
         }
     }
 }
