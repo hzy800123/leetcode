@@ -97,7 +97,7 @@ public class Main {
             数组 prices:     7 4 5 6 7 3 4 5
             数组 minBuy:     7 4 4 4 4 3 3 Max
             数组 maxSell:    0 7 7 7 7 5 5 5
-            =>  Result:     0 3 3 3 3 2 2 null // maxSellPrices[k + 1] - minBuyPrices[k]
+            =>  Result:     0 3 3 3 1 2 2 null // maxSellPrices[k + 1] - minBuyPrices[k]
              */
             // 通过打擂台方式, 查找 前后至少2天 的最大利润的值, k天买入股票, k+1天或之后卖出股票
             for (int k = 0; k < length - 1; k++) {
