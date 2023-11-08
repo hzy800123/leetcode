@@ -9,7 +9,9 @@ public class CheatShet {
 
     public static void main(String[] args) {
 //        testCollectionOperation();
-        testStringCharArray();
+//        testStringCharArray();
+        int result = binSearch(numsArray, 6);
+        System.out.println("result = " + result);
     }
 
     // 排序 (List, Array）
@@ -76,5 +78,33 @@ public class CheatShet {
 
         String newStr2 = String.valueOf(strArray);
         System.out.println(newStr2);
+    }
+
+
+    /*
+     * 循环实现二分查找算法
+     *
+     * @param arr 有序数组
+     *
+     * @param x 要查找的数
+     *
+     * @return
+     * >0 返回查找到的数据的下标位置
+     * -1 无法查到数据
+     */
+    public static int binSearch(int[] arr, int x) {
+        int low = 0;
+        int high = arr.length - 1;
+        while (low <= high) {
+            int middle = (low + high) / 2;
+            if (x == arr[middle]) {
+                return middle;
+            } else if (x < arr[middle]) {
+                high = middle - 1;
+            } else {
+                low = middle + 1;
+            }
+        }
+        return -1;
     }
 }
